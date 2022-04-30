@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MoreDetails() {
+export function MoreDetails() {
   return (
     <div>MoreDetails</div>
   )

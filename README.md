@@ -1,12 +1,11 @@
 To-Do List:
 
     1 part:
-        [x] - React Router
-        [] - Layout 1st page
+        [x] - Layout 1st page
         [] - Layout 2nd page
-        [] - fetch
+        [x] - fetch
         [] - Animation of loading data
-        [] - Cart (name, address.city, company.name)
+        [x] - Cart (name, address.city, company.name)
         [] - Button "More details" - link to page "More details"
         [] - Filtering the list (Name, City) n alphabetical order
 

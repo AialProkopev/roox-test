@@ -1,0 +1,26 @@
+.mainPage {
+    background: #FFFFFF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.content {
+    padding-left: 31px;
+    padding-top: 19px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+.content__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+}

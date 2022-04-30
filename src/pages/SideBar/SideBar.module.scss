@@ -1,0 +1,29 @@
+.sideBar {
+    width: 152px;
+    background: #BDBDBD;
+    padding-top: 35.17px;
+    padding-left: 20.27px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10.05px;
+}
+.title {
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+.button {
+    background: #4B51EF;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    height: 24.12px;
+}
+.button_city {
+    width: 86.13px;
+}
+.button_company {
+    width: 105.39px;
+}
