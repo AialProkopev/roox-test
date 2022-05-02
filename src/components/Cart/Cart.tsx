@@ -2,7 +2,14 @@ import React from "react"
 import { CartDataType } from "../../pages/MainPage"
 import styles from "./Cart.module.scss"
 
-export const Cart = ({cartData}: {cartData: CartDataType}) => {
+export const Cart = ({
+  cartData,
+  handleMoreDetails,
+}: {
+  cartData: CartDataType
+  handleMoreDetails: (data: CartDataType) => void
+}) => {
+  
   return (
     <div className={styles.cart}>
       <div className={styles.leftSide}>
@@ -20,7 +27,12 @@ export const Cart = ({cartData}: {cartData: CartDataType}) => {
         </div>
       </div>
       <div className={styles.buttonBox}>
-        <button className={styles.buttonMoreDetails}>Подробнее</button>
+        <button
+          className={styles.buttonMoreDetails}
+          onClick={() => handleMoreDetails(cartData)}
+        >
+          Подробнее
+        </button>
       </div>
     </div>
   )

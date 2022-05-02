@@ -1,0 +1,82 @@
+.content {
+    padding-left: 31px;
+    padding-top: 19px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header__button {
+    width: 116.67px;
+    height: 27.12px;
+    background: #4B51EF;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.form__box {
+    width: 438px;
+    height: 463px;   
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 6px 19px 12px;
+}
+.form__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.form__title {
+    font-size: 9px;
+    line-height: 9px;
+}
+.form__comment {
+    resize: none;
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 55px;
+    width: 100%;
+    padding-left: 10px;
+}
+.blocked {
+    color: rgba(0, 0, 0, 0.3);
+}
+.buttonBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.button {
+    width: 85px;
+    height: 24.12px;
+    background: #52CF4F;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.button_blocked {
+    background: #AFAFAF;
+}

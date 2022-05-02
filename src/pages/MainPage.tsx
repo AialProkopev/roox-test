@@ -7,36 +7,63 @@ import { Cart } from "../components/Cart"
 const apiUrl = "https://jsonplaceholder.typicode.com/users"
 
 export type GeoType = {
-    lat: string,
-    lng: string
+  lat: string
+  lng: string
 }
 export type AddressType = {
-    street: string,
-    suite: string,
-    city: string,
-    zipcode: string,
-    geo : GeoType
+  street: string
+  suite: string
+  city: string
+  zipcode: string
+  geo: GeoType
 }
 export type CompanyType = {
-    name: string,
-    catchPhrase: string,
-    bs: string
+  name: string
+  catchPhrase: string
+  bs: string
 }
 export type CartDataType = {
-    id : number,
-    name : string,
-    username: string,
-    email: string,
-    address: AddressType,
-    phone: string,
-    website: string,
-    company: CompanyType
+  id: number
+  name: string
+  username: string
+  email: string
+  address: AddressType
+  phone: string
+  website: string
+  company: CompanyType
 }
 
 export default function MainPage() {
   const [data, setData] = React.useState<Array<CartDataType>>(null!)
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(null)
+  const [isMoreDetailsShown, setIsMoreDetailsShown] = React.useState(false)
+  const [currentData, setCurrentData] = React.useState<CartDataType>(null!)
+
+  const handleMoreDetails = (data: CartDataType) => {
+    setIsMoreDetailsShown(true)
+    setCurrentData(data)
+  }
+
+  const handleSortDataCity = () => {
+    setData(
+      [...data].sort(function (obj1, obj2) {
+        if (obj1.address.city < obj2.address.city) return -1
+        if (obj1.address.city > obj2.address.city) return 1
+        return 0
+      })
+    )
+  }
+
+  const handleSortDataCompany = () => {
+    setData(
+      [...data].sort(function (obj1, obj2) {
+        if (obj1.company.name < obj2.company.name) return -1
+        if (obj1.company.name > obj2.company.name) return 1
+        return 0
+      })
+    )
+  }
 
   React.useEffect(() => {
     fetch(apiUrl)
@@ -56,21 +83,36 @@ export default function MainPage() {
       })
   }, [])
   
-  if (loading) return <div className={styles.loading}>Loading</div>
+  if (loading) return <div className={styles.loading}></div>
   if (error) return <div className={styles.error}>Error!</div>
-  
+
   return (
     <div className={styles.mainPage}>
-      <SideBar />
-      <div className={styles.content}>
-        <h3 className={styles.title}>Список пользователей</h3>
-        <div className={styles.content__list}>
-            {data.map((item : any,index : number)=>{
-                return <Cart key={`${item}__${index}`} cartData={item} />
-            })}
+      <SideBar
+        sortCity={handleSortDataCity}
+        sortCompany={handleSortDataCompany}
+      />
+      {isMoreDetailsShown ? (
+        <MoreDetails data={currentData} />
+      ) : (
+        <div className={styles.content}>
+          <h3 className={styles.title}>Список пользователей</h3>
+          <div className={styles.content__list}>
+            {data.map((item: CartDataType, index: number) => (
+              <Cart
+                key={item.id}
+                cartData={item}
+                handleMoreDetails={handleMoreDetails}
+              />
+            ))}
+          </div>
+          <div className={styles.count}>
+            <div className={styles.count__item}>
+              Найдено {data.length} пользователей
+            </div>
+          </div>
         </div>
-        
-      </div>
+      )}
     </div>
   )
 }

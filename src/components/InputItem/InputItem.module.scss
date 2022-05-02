@@ -1,0 +1,33 @@
+.form__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.form__title {
+    font-size: 9px;
+    line-height: 9px;
+}
+.form__input {
+    width: 211px;
+    height: 22px;
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 12px;
+    padding-left: 10px;
+    &:invalid {
+        border: 1px solid #D91313;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.blocked {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+
+
